@@ -1,0 +1,47 @@
+name: Test
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup Pixi
+        uses: prefix-dev/setup-pixi@a0af7a228712d6121d37aba47adf55c1332c9c2e # v0.9.4
+        # with:
+        #   run-install: false
+
+      - name: Build
+        run: pixi run build
+        # run: |
+        #   docker run --rm \
+        #     --user "$(id -u):$(id -g)" \
+        #     -v "${{ github.workspace }}:${{ github.workspace }}" \
+        #     -v "$HOME/.pixi:$HOME/.pixi" \
+        #     -v "$HOME/.cache:$HOME/.cache" \
+        #     -w "${{ github.workspace }}" \
+        #     -e HOME="$HOME" \
+        #     quay.io/pypa/manylinux2014_x86_64 \
+        #     "$HOME/.pixi/bin/pixi" build
+
+      - name: Inspect glibc
+        run: |
+          ls *.conda
+          # rename the *.conda file to out.conda
+          mv *.conda out.conda
+          ls *.conda
+          # extract the out.conda file
+          mkdir out
+          pixi run bsdtar -xf out.conda -C out
+          cd out && mv pkg*.tar.zst pkg.tar.zst
+          pixi run bsdtar -xf pkg.tar.zst
+          cd bin
+          ls
+          ldd -v pixi-rust-glibc-test
+          objdump -T pixi-rust-glibc-test | grep GLIBC | sed 's/.*GLIBC_\([.0-9]*\).*/\1/g' | sort -Vu
