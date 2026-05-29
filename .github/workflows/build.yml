@@ -21,16 +21,20 @@ jobs:
       - name: Build
         run: |
           cargo build --release
-      
-      - name: Package
+
+      - name: Package (Unix)
+        if: matrix.os != 'windows-latest'
         shell: bash
         run: |
           mkdir -p artifacts
-          if [[ "${{ matrix.name }}" == "windows" ]]; then
-            zip -j artifacts/app-windows.zip target/release/main.exe
-          else
-            tar -czf artifacts/app-${{ matrix.suffix }}.tar.gz -C target/release main
-          fi
+          tar -czf artifacts/app-${{ matrix.suffix }}.tar.gz -C target/release main
+
+      - name: Package (Windows)
+        if: matrix.os == 'windows-latest'
+        shell: pwsh
+        run: |
+          mkdir artifacts
+          Compress-Archive -Path target\release\main.exe -DestinationPath artifacts\app-windows.zip
 
       - name: Upload artifacts
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
