@@ -16,29 +16,14 @@ permissions:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Build
-        run: |
-          # Build the project and create release artifacts
-          # (This is a placeholder; replace with actual build commands)
-          mkdir -p artifacts
-          echo "Dummy artifact content" > artifacts/app-mac.tar.gz
-          echo "Dummy artifact content" > artifacts/app-windows.msi
-          echo "Dummy artifact content" > artifacts/app-windows.zip
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          name: release
-          path: artifacts
+    uses: ./.github/workflows/build.yml
 
   release:
     name: Create Release
     runs-on: ubuntu-latest
     needs: [build]
     steps:
-      - name: Create Release
+      - name: Draft Release
         uses: chawyehsu/actions/create-release@main
         with:
           tag: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.version || github.ref_name }}

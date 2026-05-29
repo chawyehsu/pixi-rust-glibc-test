@@ -1,0 +1,39 @@
+name: Build
+
+on:
+  workflow_call:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { name: "linux", os: "ubuntu-latest", suffix: "linux" }
+          - { name: "macos", os: "macos-latest", suffix: "macos" }
+          - { name: "windows", os: "windows-latest", suffix: "windows" }
+    name: Build - ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Build
+        run: |
+          cargo build --release
+      
+      - name: Package
+        shell: bash
+        run: |
+          mkdir -p artifacts
+          if [[ "${{ matrix.name }}" == "windows" ]]; then
+            zip -j artifacts/app-windows.zip target/release/main.exe
+          else
+            tar -czf artifacts/app-${{ matrix.suffix }}.tar.gz -C target/release main
+          fi
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: release
+          path: artifacts
