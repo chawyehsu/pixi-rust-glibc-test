@@ -12,4 +12,4 @@ jobs:
       - name: Run Release PR
         uses: chawyehsu/actions/release-pr@main
         with:
-          token: ${{ secrets.RELEASE_MAID_PRIVATE_KEY }}
+          private-key: ${{ secrets.RELEASE_MAID_PRIVATE_KEY }}
