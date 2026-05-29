@@ -35,7 +35,10 @@ jobs:
 
   release:
     name: Create Release
+    runs-on: ubuntu-latest
     needs: [build]
-    uses: chawyehsu/actions/create-release@main
-    with:
-      tag: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.version || github.ref_name }}
+    steps:
+      - name: Create Release
+        uses: chawyehsu/actions/create-release@main
+        with:
+          tag: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.version || github.ref_name }}
