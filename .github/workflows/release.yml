@@ -62,5 +62,5 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           tag="v${VERSION#v}"
-          gh release create "$tag" release/* --title "$tag" --draft \
+          gh release create "$tag" release/* --title "$tag" --verify-tag --draft \
             || gh release upload "$tag" release/* --clobber
