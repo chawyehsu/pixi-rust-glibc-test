@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.5](https://github.com/chawyehsu/pixi-rust-glibc-test/compare/v0.1.4...v0.1.5) (2026-05-29)
+
+
+### Features
+
+* **main:** add punctuation to greeting ([baf848f](https://github.com/chawyehsu/pixi-rust-glibc-test/commit/baf848f5d3bfa3f4460b5f92c2fa764ee25933cb))
+
 ## [0.1.4](https://github.com/chawyehsu/pixi-rust-glibc-test/compare/v0.1.3...v0.1.4) (2026-05-29)
 
 
