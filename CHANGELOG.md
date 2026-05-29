@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.3](https://github.com/chawyehsu/pixi-rust-glibc-test/compare/v0.1.2...v0.1.3) (2026-05-29)
+
+
+### Features
+
+* **main:** add greeting with Hehe ([2437f00](https://github.com/chawyehsu/pixi-rust-glibc-test/commit/2437f0089142e014ae0d66d4f8f21ecaa3e71551))
+
+
+### Bug Fixes
+
+* add main binary configuration in Cargo.toml ([9e0f980](https://github.com/chawyehsu/pixi-rust-glibc-test/commit/9e0f9806235224fb551f26cb907714a88fdd661c))
+
 ## [0.1.2](https://github.com/chawyehsu/pixi-rust-glibc-test/compare/v0.1.1...v0.1.2) (2026-05-29)
 
 
