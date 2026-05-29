@@ -25,5 +25,3 @@ jobs:
     steps:
       - name: Draft Release
         uses: chawyehsu/actions/create-release@main
-        with:
-          tag: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.version || github.ref_name }}
