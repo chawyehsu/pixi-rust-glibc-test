@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/chawyehsu/pixi-rust-glibc-test/compare/v0.1.3...v0.1.4) (2026-05-29)
+
+
+### Bug Fixes
+
+* **main:** remove stray line in hello world ([7dad43d](https://github.com/chawyehsu/pixi-rust-glibc-test/commit/7dad43d048fbe6918325c137366fb91c255479ce))
+
 ## [0.1.3](https://github.com/chawyehsu/pixi-rust-glibc-test/compare/v0.1.2...v0.1.3) (2026-05-29)
 
 
