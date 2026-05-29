@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.2](https://github.com/chawyehsu/pixi-rust-glibc-test/compare/v0.1.1...v0.1.2) (2026-05-29)
+
+
+### Features
+
+* **main:** add exclamation to hello message ([680e021](https://github.com/chawyehsu/pixi-rust-glibc-test/commit/680e0212a462f401f335712a1f2c80dc109aa859))
+* **main:** add initial hello world print ([7bb7a0a](https://github.com/chawyehsu/pixi-rust-glibc-test/commit/7bb7a0a2490635b5b200444e0fed0732f079bcbd))
+* update main function with new feature ([b5b6496](https://github.com/chawyehsu/pixi-rust-glibc-test/commit/b5b6496296092b355ce97bccdf120959eb782a1e))
+
 ## [0.1.1](https://github.com/chawyehsu/pixi-rust-glibc-test/compare/v0.1.0...v0.1.1) (2026-05-29)
 
 
