@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.6](https://github.com/chawyehsu/pixi-rust-glibc-test/compare/v0.1.5...v0.1.6) (2026-05-29)
+
+
+### Bug Fixes
+
+* **main:** remove extra exclamation mark ([aa0f435](https://github.com/chawyehsu/pixi-rust-glibc-test/commit/aa0f43595e71549b67a86a025323ef9a66d957f6))
+
 ## [0.1.5](https://github.com/chawyehsu/pixi-rust-glibc-test/compare/v0.1.4...v0.1.5) (2026-05-29)
 
 
