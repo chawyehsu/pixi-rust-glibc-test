@@ -16,6 +16,10 @@ build = { cmd = "pixi build" }
 c_stdlib = ["sysroot"]
 c_stdlib_version = ["2.17"]
 
+[workspace.target.linux-aarch64.build-variants]
+c_stdlib = ["sysroot"]
+c_stdlib_version = ["2.17"]
+
 # [package.build.target.linux-64.config]
 # compilers = ["rust", "c"]
 

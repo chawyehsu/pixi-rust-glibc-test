@@ -1,0 +1,13 @@
+name: Release Please
+
+on:
+  push:
+    branches: [main]
+
+permissions: {}
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Release PR
+        uses: chawyehsu/actions/release-pr@main
